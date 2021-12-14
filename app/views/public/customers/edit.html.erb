@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:200px; padding:0px 40px; margin:30px 0 30px 0">会員情報編集</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1", style="float:left; clear:both;">
+      <%= form_with model:@customer,url:customers_path, local:true do |f| %>
+        <table>
+        <tr>
+          <th><label>名前</label></th>
+          <td style="padding-left:40px;"><%= f.text_field :last_name, style:"width:250px; margin-left:17px;" %></td>
+          <td style="padding-left:40px;"><%= f.text_field :first_name, style:"width:250px; margin-left:17px;" %></td>
+        </tr>
+
+        <tr>
+          <th><label>フリガナ</label></th>
+          <td style="padding-left:55px;"><%= f.text_field:last_name_kana,style:"width:250px;" %></td>
+          <td style="padding-left:55px;"><%= f.text_field:first_name_kana,style:"width:250px;" %></td>
+        </tr>
+
+        <tr>
+          <th><label>郵便番号</label></th>
+          <td><%= f.text_field:postal_code, style:"margin:0 0 0 55px; width:250px;"%></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th><label>住所</label></th>
+          <td><%= f.text_field:adress, style:"margin:0 0 0 55px; width:500px;" %></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th><label>電話番号</label></th>
+          <td><%= f.text_field:telephone_number, style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+        <tr>
+          <th><label>メールアドレス</label></th>
+          <td style="margin-left:20px;"><%= f.text_field:email, style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+
+        <tr>
+          <th></th>
+          <td><%=f.submit "編集内容を保存", class:"btn btn-success" ,style:"margin:0 0 0 55px; width:250px;" %><%=link_to "退会する",customers_confirm_path, class:"btn btn-danger",style:"margin:0 0 0 200px;" %></td>
+        </tr>
+
+
+      </table>
+  　　<% end %>
+  　</div>
+　</div>
+</div>
+
+<style>
+
+  th{
+    text-align: left;
+    font-weight: normal;
+    width:200px;
+    padding:10px;
+  }
+</style>

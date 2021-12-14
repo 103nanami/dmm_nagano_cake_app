@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:220px; padding:0px 40px; margin:30px 0 30px 0">管理者ログイン</h5>
+  </div>
+
+  <p class="alert"><%= alert %></p>
+  <style>
+    .alert{
+      color:red;
+    }
+  </style>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="col-lg-12 mx-auto">
+      <div class="sign_in_form">
+        <table style="margin:0 auto;">
+          <tr>
+            <td><label for="email" ,style="margin-bottom:20px;">メールアドレス</label></td><td><%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"sample@example.com",style:"margin-left:30px; margin-bottom:20px; width:400px;" %></td>
+          </tr>
+
+          <tr>
+            <td><label for="current-password">パスワード</label></td><td><%= f.password_field :password, autocomplete: "current-password",style:"margin-left:30px; margin-bottom:20px; width:400px;" %></td>
+          </tr>
+        </table>
+      </div>
+
+  <div class="row">
+        <%= f.submit "ログイン", class:"btn btn-primary", style:"margin:50px auto; width:150px"%>
+  </div>
+  <% end %>
+
+</div>
+
+

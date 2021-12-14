@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:200px; padding:0px 40px; margin:30px 0 30px 0">商品新規登録</h5>
+  </div>
+
+  <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+  <div class="row">
+    <div class="col-lg-12 mx-auto">
+
+      <table style="margin:0 auto;">
+        <tr>
+          <td><label style="margin-bottom:20px;">商品画像</label></td><td><%= f.attachment_field :image, style:"margin-left:50px; margin-bottom:20px; width:300px;" %></td>
+        </tr>
+
+        <tr>
+          <td><label style="margin-bottom:20px;">商品名</label></td><td><%=f.text_field :name, style:"margin-left:50px; margin-bottom:20px; width:300px;"%></td>
+        </tr>
+
+        <tr>
+          <td><label style="margin-bottom:20px;">商品説明</label></td><td><%=f.text_area :introduction, style:"margin-left:50px; margin-bottom:20px; width:300px;" %></td>
+        </tr>
+
+        <tr>
+          <td><label style="margin-bottom:20px;"><label>ジャンル</label></td>
+          <td>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name ,class:"select",:prompt => "選択してください" %>
+          </td>
+        </tr>
+
+        <style>
+          .select{
+            display:block;
+             margin-left:50px;
+             margin-bottom:20px;
+          }
+        </style>
+
+        <tr>
+          <td><label style="margin-bottom:20px;">税抜価格</label></td><td> <%=f.text_field :price, style:"margin-left:50px; margin-bottom:20px; width:300px;" %>円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <%=f.submit "新規登録",class:"btn btn-success", style:"width:150px; margin:0 auto;" %>
+  </div>
+
+　<% end %>
+
+</div>
+
+<style>
+  p{
+    display:left;
+  }
+</style>

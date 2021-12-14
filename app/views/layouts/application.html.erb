@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <% if customer_signed_in? %>
+      <%= render '/public/list' %>
+    <% elsif admin_signed_in? %>
+      <%= render '/admin/list' %>
+    <% else %>
+      <%= render '/list' %>
+    <% end %>
+
+
     <%= yield %>
+
   </body>
 </html>

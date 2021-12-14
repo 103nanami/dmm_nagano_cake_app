@@ -1,0 +1,90 @@
+
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:200px; padding:0px 40px; margin:30px 0 30px 0">新規会員登録</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+
+      <%#= form_for(Customer.new, url: customer_registration_path) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "customers/shared/error_messages", resource: resource %>
+
+       <table>
+        <tr>
+          <th><label>名前</label></th>
+          <td>(姓)　<%= f.text_field :last_name, autofocus: true,placeholder: "令和", style:"margin-left:17px; width:250px;" %></td>
+          <td style="padding-left:30px;">(名)　<%= f.text_field :first_name, autofocus: true,placeholder: "道子", style:"width:250px; margin-left:17px;"  %></td>
+        </tr>
+
+        <tr>
+          <th><label>フリガナ</label></th>
+          <td>(セイ)　<%= f.text_field :last_name_kana, autofocus: true,placeholder: "レイワ" ,style:"width:250px;" %></td>
+          <td style="padding-left:30px;">(メイ)　<%= f.text_field :first_name_kana, autofocus: true,placeholder: "ミチコ",style:"width:250px;" %></td>
+        </tr>
+
+        <tr>
+          <th><label>メールアドレス</label></th>
+          <td style="margin-left:20px;"><%= f.email_field :email, autofocus: true, autocomplete: "email", style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+        <tr>
+          <th><label>郵便番号(ハイフンなし)</label></th>
+          <td><%= f.text_field :postal_code, autofocus: true , style:"margin:0 0 0 55px; width:250px;"%></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th><label>住所</label></th>
+          <td><%= f.text_field :adress, autofocus: true, style:"margin:0 0 0 55px; width:500px;" %></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th><label>電話番号(ハイフンなし)</label></th>
+          <td><%= f.text_field :telephone_number, autofocus: true, style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+         <tr>
+          <th><label>パスワード(6文字以上)</label></th>
+          <td><%= f.password_field :password, autocomplete: "new-password", style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+         <tr>
+          <th><label>パスワード(確認用)</label></th>
+          <td><%= f.password_field :password_confirmation, autocomplete: "new-password", style:"margin:0 0 0 55px; width:250px;" %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+          <td>
+            <%= f.submit "新規登録",class:"btn btn-success" ,style:"margin:0 0 0 55px; width:250px;" %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-10">
+      <h5 style="background-color:#f0f0f0; width:250px; padding:0px 40px; margin:30px 0 30px 0">既に登録済みの方</h5>
+      <p><%= link_to "こちら",new_customer_session_path %>からログインしてください。</p>
+    </div>
+  </div>
+
+
+</div>
+
+<style>
+
+  th{
+    text-align: left;
+    font-weight: normal;
+    width:200px;
+    padding:10px;
+  }
+</style>

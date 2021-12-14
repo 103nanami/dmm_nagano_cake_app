@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:230px; padding:0px 40px; margin:30px 0 30px 0">配送先編集</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <%= form_with model:@adress,url: adress_path(@adress),method: :patch,  local:true do |f| %>
+      <table>
+          <tr><td>郵便番号(ハイフンなし)</td><td><%= f.text_field:postal_code,style:"width:200px; margin-left:50px;" %></td></tr>
+          <tr><td>住所</td><td><%= f.text_field:adress,style:"width:400px;  margin-left:50px;" %></td></tr>
+          <tr><td>宛名</td><td><%= f.text_field:name,style:"width:200px;  margin-left:50px;" %><%= f.submit "変更内容を保存", class:"btn btn-success" %></td></tr>
+          </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>

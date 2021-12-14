@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:180px; padding:0px 40px; margin:30px 0 30px 0">商品詳細</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <%= attachment_image_tag @item, :image, :width => "400px", :height => "auto" %>
+    </div>
+
+    <div class="col-lg-6", style="margin-left:60px;">
+
+      <p style="font-size:30px; font-weight:bold;"><%=@item.name %></p>
+      <p style="font-size:20px;"><%=@item.introduction %></p>
+      <div class="tax_price" style="display:flex;"><p style="font-size:30px; font-weight:bold;">￥<%=@item.price %></p><p style="padding-top:13px;">(税込)</p></div>
+
+      <%= form_with model:@cart_item, url:cart_items_path, method: :POST do |f| %>
+        <%= f.hidden_field :item_id, value:@item.id %>
+        <%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], prompt: "個数選択" %>
+        <%= f.submit  "カートに入れる" ,class:"btn btn-success",style:"margin-left:50px;" %>
+      <% end %>
+    </div>
+  </div>
+</div>

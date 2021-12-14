@@ -1,0 +1,73 @@
+ <header>
+  <div class="logo-nav">
+    <div class="logo">
+      <%= link_to root_path, class:"link_to" do %>
+      <h1>NAGANO CAKE</h1>
+      <% end %>
+      <style>
+        .link_to:hover{
+          text-decoration: none;
+        }
+      </style>
+    </div>
+
+    <div class="flash">
+      <p class="notice"><%= notice %></p>
+      <style>
+        .notice{
+          color:white;
+          margin-top:60px;
+        }
+      </style>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-list">
+          <%= link_to "マイページ", customers_my_page_path, class:"btn btn-light" %>
+          <%= link_to "商品一覧", items_path, class:"btn btn-light",style:"margin-left:20px" %>
+          <%= link_to "カート", cart_items_path, class:"btn btn-light",style:"margin-left:20px" %>
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn btn-light",style:"margin-left:20px" %>
+      </div>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<style>
+header{
+  width:100%;
+  background-color:#f7b8b2;
+}
+
+.logo-nav{
+  display:flex;
+}
+
+.nav-right{
+  margin:0 0 0 auto;
+}
+
+.nav-list{
+  margin:20px;
+}
+
+h1{
+  margin:50px 50px 30px 20px;
+  color:white;
+
+}
+
+.d-flex{
+  width:300px;
+  float: right;
+  margin:0 20px 10px 0;
+}
+
+
+</style>
+
+

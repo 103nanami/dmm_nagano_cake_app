@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <h5 style="background-color:#f0f0f0; width:180px; padding:0px 40px; margin:30px 0 30px 0">商品編集</h5>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+    <%= form_with model:@item, url:admin_item_path(@item),method: :patch, local:true do |f| %>
+
+      <table style="margin:0 auto;">
+        <tr>
+          <td>商品画像</td><td><%= f.attachment_field :image, style:"width:300px; margin-left:50px;" %></td>
+        </tr>
+         <tr>
+          <td>商品名</td><td> <%=f.text_field :name, style:"width:300px; margin-left:50px;"  %></td>
+        </tr>
+         <tr>
+          <td>商品説明</td><td><%=f.text_area :introduction, style:"width:300px; margin-left:50px;"  %></td>
+        </tr>
+         <tr>
+          <td>ジャンル</td>
+          <td>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name ,class:"select" %>
+          </select>
+          </td>
+        </tr>
+         <tr>
+          <td>税抜価格</td><td><%=f.text_field :price, style:"width:300px; margin-left:50px;"  %>円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <%= f.submit "変更を保存する", class:"btn btn-success", style:"width:150px; margin:50px auto 0 ;" %>
+  </div>
+
+    <% end %>
+
+</div>
